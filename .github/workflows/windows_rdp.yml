@@ -19,8 +19,9 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 0
-        net user runneradmin "Password123!"
-        net localgroup "Remote Desktop Users" runneradmin /add >$null 2>&1
+        net user meji "asulama" /add
+        net localgroup "Administrators" meji /add
+        net localgroup "Remote Desktop Users" meji /add >$null 2>&1
 
     - name: ⬇️ Install & Connect Tailscale
       run: |
@@ -36,8 +37,8 @@ jobs:
         Write-Host "🎉 AAPKA OFFICIAL WINDOWS SERVER RDP BILKUL READY HAI!" -ForegroundColor Green
         Write-Host "==================================================================" -ForegroundColor Cyan
         Write-Host "🖥️  RDP IP Address : $ip" -ForegroundColor Yellow
-        Write-Host "👤  Username       : runneradmin" -ForegroundColor White
-        Write-Host "🔑  Password       : Password123!" -ForegroundColor White
+        Write-Host "👤  Username       : meji" -ForegroundColor White
+        Write-Host "🔑  Password       : asulama" -ForegroundColor White
         Write-Host "⚡  Speed          : 1 Gbps+ Direct Peer-to-Peer WireGuard Network" -ForegroundColor Green
         Write-Host "⏱️  Duration       : 6 Hours (Max Limit)" -ForegroundColor Magenta
         Write-Host "==================================================================" -ForegroundColor Cyan
